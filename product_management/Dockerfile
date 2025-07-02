@@ -1,4 +1,13 @@
 FROM openjdk:11-jre-slim
+
+# Crear directorio de trabajo
 WORKDIR /app
-COPY target/gestion-productos.jar /app/gestion-productos.jar
-ENTRYPOINT ["java", "-jar", "gestion-productos.jar"]
+
+# Copiar archivo .jar
+COPY target/product-management.jar /app/product-management.jar
+
+# Exponer puerto 8080
+EXPOSE 8080
+
+# Comando de ejecución
+ENTRYPOINT ["java", "-jar", "product-management.jar"]

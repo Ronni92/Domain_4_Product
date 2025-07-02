@@ -1,7 +1,16 @@
-FROM node:14
+FROM node:14-slim
+
+# Crear directorio de trabajo
 WORKDIR /app
-COPY package*.json /app/
+
+# Copiar los archivos del proyecto
+COPY package.json /app/
 RUN npm install
+
 COPY . /app/
+
+# Exponer puerto 4000
 EXPOSE 4000
-CMD ["node", "src/server.js"]
+
+# Comando de ejecución
+CMD ["node", "app.js"]
